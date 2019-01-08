@@ -26,14 +26,27 @@
             >Catalog</nuxt-link>
           </li>
         </ul>
+        <ul class="navbar-nav mr-auto pull-right">
+          <li class="nav-item">
+            <nuxt-link
+              :to="{ name: 'catalog' }"
+              class="nav-link"
+            >Basket({{ totalCount }})</nuxt-link>
+          </li>
+        </ul>
       </div>
     </nav>
   </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'TheHeader'
+  name: 'TheHeader',
+  computed: mapGetters({
+    totalCount: 'Basket/getProductsQuantity'
+  })
 }
 </script>
 

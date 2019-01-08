@@ -1,21 +1,35 @@
 <template>
   <li class="product-item">
-    <img :src="product.image">
+    <img
+      :src="product.image"
+      @click="test">
     <h3 class="product-title">{{ product.title }}</h3>
     <div class="product-bottom">
       <span class="price">{{ product.price }} USD</span>
-      <button class="btn btn-success btn-sm">Buy</button>
+      <button
+        class="btn btn-success btn-sm"
+        @click="onAdd(product)">Buy</button>
     </div>
   </li>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Product',
   props: {
     product: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    ...mapActions({
+      onAdd: 'Basket/addToBasket'
+    }),
+    test() {
+      alert('test')
     }
   }
 }
