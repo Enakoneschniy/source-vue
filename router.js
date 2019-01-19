@@ -5,6 +5,7 @@ import Index from '~/pages/index'
 import About from '~/pages/about'
 import Blog from '~/pages/blog'
 import Catalog from '~/pages/catalog'
+import Todo from '~/pages/todo'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ export function createRouter() {
         name: 'catalog',
         path: '/catalog',
         component: Catalog
+      },
+      {
+        name: 'todo',
+        path: '/todo',
+        component: Todo
       }
     ]
   })

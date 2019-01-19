@@ -10,5 +10,12 @@ export default {
   },
   changeQuantity({ commit }, info) {
     commit(CHANGE_QUANTITY, info)
+  },
+  addTodo({ commit }, title) {
+    commit(ADD_TODO, {
+      title,
+      id: new Date().getTime(),
+      done: false
+    })
   }
 }
